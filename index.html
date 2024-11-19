@@ -51,5 +51,44 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
+  <script>
+    // Firebaseの初期化コード（Firebaseコンソールで取得したもの）
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+  
+    // Firebaseを初期化
+    firebase.initializeApp(firebaseConfig);
+  
+    // Firestoreを取得
+    const db = firebase.firestore();
+  
+    // データを書き込む例
+    function addOrder() {
+      db.collection("orders").add({
+        customerName: "山田太郎",
+        item: "ラーメン",
+        price: 800,
+        orderTime: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        console.log("注文データが保存されました！");
+      })
+      .catch((error) => {
+        console.error("エラーが発生しました: ", error);
+      });
+    }
+  
+    // ページ読み込み時にテストで注文データを保存
+    window.onload = () => {
+      addOrder();
+    };
+  </script>
+  
 </body>
 </html>
