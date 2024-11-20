@@ -2,14 +2,15 @@
 
 // Firebase設定（Firebaseコンソールから取得した値を貼り付けてください）
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-  
+    apiKey: "AIzaSyAqPQHty5jpTZKjxt-nt41E6XZF0_9GJZM",
+    authDomain: "menu-app-c6350.firebaseapp.com",
+    projectId: "menu-app-c6350",
+    storageBucket: "menu-app-c6350.firebasestorage.app",
+    messagingSenderId: "101548584419",
+    appId: "1:101548584419:web:f62d55e819e082a11e04d6",
+    measurementId: "G-MWLPJ2MXY6"
+};
+
   // Firebaseの初期化
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
