@@ -54,4 +54,36 @@ const firebaseConfig = {
   
   // ページロード時に注文状況を取得
   window.onload = fetchOrders;
+
+  
+  // 注文データをFirestoreに送信する関数
+    function sendOrder() {
+    // カートデータのサンプル（実際のアプリでは、カート情報を取得して送信する）
+    const orderData = {
+      items: [
+        { name: "ラーメン", price: 800, quantity: 2 },
+        { name: "チャーハン", price: 600, quantity: 1 }
+      ],
+      total: 2200, // 合計金額
+      timestamp: new Date() // 注文日時
+    };
+  
+    // Firestoreのコレクションにデータを追加
+    db.collection("orders")
+      .add(orderData)
+      .then((docRef) => {
+        console.log("注文が送信されました。注文ID: ", docRef.id);
+        alert("注文を送信しました！");
+      })
+      .catch((error) => {
+        console.error("注文の送信に失敗しました: ", error);
+        alert("注文の送信に失敗しました。もう一度お試しください。");
+      });
+  }
+  
+  // ボタンのクリックイベントを設定
+  const sendOrderButton = document.getElementById("sendOrderButton");
+  if (sendOrderButton) {
+    sendOrderButton.addEventListener("click", sendOrder);
+  }
   
