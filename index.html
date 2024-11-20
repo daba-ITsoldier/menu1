@@ -4,91 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>メニューサイト</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>メニュー</h1>
+    <h1>メニューサイト</h1>
   </header>
+
   <main>
     <section id="menu">
-      <h2>料理ジャンル</h2>
+      <h2>メニュー</h2>
       <ul>
-        <li>寿司 <button onclick="addToCart('寿司')">カートに追加</button></li>
-        <li>ラーメン <button onclick="addToCart('ラーメン')">カートに追加</button></li>
-        <li>カレー <button onclick="addToCart('カレー')">カートに追加</button></li>
+        <li>
+          <span>ラーメン - 800円</span>
+          <button onclick="addOrder('ラーメン', 800)">注文</button>
+        </li>
+        <li>
+          <span>寿司 - 1200円</span>
+          <button onclick="addOrder('寿司', 1200)">注文</button>
+        </li>
+        <li>
+          <span>カレー - 700円</span>
+          <button onclick="addOrder('カレー', 700)">注文</button>
+        </li>
       </ul>
     </section>
-    <section id="cart">
-      <h2>カート</h2>
-      <ul id="cart-items">
-        <!-- カートの内容がここに表示されます -->
-      </ul>
-      <p>合計金額: <span id="total-price">0</span>円</p>
+    <section id="order-status">
+      <h2>注文状況</h2>
+      <ul id="order-list"></ul>
     </section>
   </main>
-  <script src="app.js"></script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAqPQHty5jpTZKjxt-nt41E6XZF0_9GJZM",
-      authDomain: "menu-app-c6350.firebaseapp.com",
-      projectId: "menu-app-c6350",
-      storageBucket: "menu-app-c6350.firebasestorage.app",
-      messagingSenderId: "101548584419",
-      appId: "1:101548584419:web:f62d55e819e082a11e04d6",
-      measurementId: "G-MWLPJ2MXY6"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-  <script>
-    // Firebaseの初期化コード（Firebaseコンソールで取得したもの）
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-  
-    // Firebaseを初期化
-    firebase.initializeApp(firebaseConfig);
-  
-    // Firestoreを取得
-    const db = firebase.firestore();
-  
-    // データを書き込む例
-    function addOrder() {
-      db.collection("orders").add({
-        customerName: "山田太郎",
-        item: "ラーメン",
-        price: 800,
-        orderTime: firebase.firestore.FieldValue.serverTimestamp()
-      })
-      .then(() => {
-        console.log("注文データが保存されました！");
-      })
-      .catch((error) => {
-        console.error("エラーが発生しました: ", error);
-      });
-    }
-  
-    // ページ読み込み時にテストで注文データを保存
-    window.onload = () => {
-      addOrder();
-    };
-  </script>
-  
+
+  <footer>
+    <p>Powered by Firebase</p>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js"></script>
+
+  <!-- メインJavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
