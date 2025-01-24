@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* スクロールを非表示にする */
+}
+
+body {
+    position: relative;
+}
+  
+.container {
+    box-sizing: border-box;
+    border: 2px solid red;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#main-space {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+#main-space img {
+    width: 98vw;
+    height: 50vh;
+    object-fit: contain;
+    outline: 1px dashed green;
+}
+
+#sub-space {
+    border: 1px dashed blue;
+    width: 96vw;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sub-space ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 15vw);
+    grid-template-rows: repeat(auto-fill, 15vw);
+    gap: 3vh 3vw;
+    margin: 5vw;
+    padding: 0;
+}
+
+#sub-space li {
+    outline: 1px dashed red;
+    width: 15vw;
+    height: 15vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.sub-img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* 画像が親要素内に収まるように調整 */
+}
+
+
+#sub-space .current {
+    outline: 2px solid red;
+}
+
+#sub-space .current,
+#sub-space li:hover {
+    opacity: 1;
+}
+
+#menu-name {
+    outline: 1px solid black;
+
+    position: fixed;
+    left: 1vw;
+    top: 6vh;
+    width: 50vw;
+    height: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+}
+
+#menu-price {
+    outline: 1px solid black;
+
+    position: fixed;
+    right: 1vw;
+    top: 50vh;
+    width: 50vw;
+    height: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+}
