@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/sample.css">
 </head>
 <body>
-    <div class="container">
-
-        <div id="main-space">
-        </div>
-        <div id="sub-space">
-            <ul>
-            </ul>
-        </div>
-        <div id="menu-name">
-        </div>
-        <div id="menu-price">
-        </div>
+    <div>
+        <button onclick="decrease()">−</button>
+        <span id="number">0</span>
+        <button onclick="increase()">＋</button>
     </div>
 
-    
+    <input type="number" id="numInput" value="0" min="0" max="10">
+
+    <select id="numSelect">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+      
+
     <script src="js/sample.js"></script>
 </body>
 </html>
